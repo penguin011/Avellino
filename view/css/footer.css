@@ -1,0 +1,338 @@
+
+.slide-in {
+	overflow: hidden;
+	display: inline-block;
+	padding: 0 10px; /*英語がはみ出るので見えるように余白追記*/
+  }
+
+  .slide-in_inner {
+	display: inline-block;
+
+  }
+
+  /*左右のアニメーション*/
+  .leftAnime,
+  .rightAnime{
+	opacity: 1;/*事前に透過0にして消しておく*/
+  }
+
+
+  .slideAnimeLeftRight {
+	animation-name: slideText-100;
+	animation-duration:0.8s;
+	animation-fill-mode:forwards;
+	opacity: 0;
+  }
+
+  @keyframes slideText-100 {
+	from {
+	  transform: translateX(-100%); /*要素を左の枠外に移動*/
+	  opacity: 0;
+	}
+
+	to {
+	  transform: translateX(0);/*要素を元の位置に移動*/
+	  opacity: 1;
+	}
+  }
+
+  .slideAnimeRightLeft {
+	animation-name: slideText100;
+	animation-duration:0.8s;
+	animation-fill-mode:forwards;
+	opacity: 0;
+  }
+
+
+  @keyframes slideText100 {
+	from {
+	  transform: translateX(100%);/*要素を右の枠外に移動*/
+	  opacity: 0;
+	}
+
+	to {
+	  transform: translateX(0);/*要素を元の位置に移動*/
+	  opacity: 1;
+	}
+  }
+
+/*=================contact====================*/
+#contact2{
+	border-top: 1px solid #aaa;
+	border-bottom: 1px solid #aaa;
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	align-items: center;
+  }
+
+  #contact2_new p {
+	margin: 0px;
+  }
+
+  #contact2 .contact2-detail{
+	width:65%;
+	border-right: 1px solid #aaa;
+	text-align: center;
+	padding: 20px;
+  }
+
+  #contact2 .contact2-detail h2{
+	margin:0 0 5px 0;
+	font-size: 1.5rem;
+  }
+
+  #contact2 .contact2-tel{
+	width:35%;
+  }
+
+  #contact2 .contact2-tel p{
+	text-align: center;
+  }
+
+  #contact2 .contact2-tel p a{
+	display: block;
+	padding: 20px;
+	transition: all .3s;
+  }
+
+  #contact2 .contact2-tel p a:hover{
+	background:rgba(255,255,255,0.2);
+  }
+
+  #contact2 .contact2-tel p:last-child{
+	border-top:1px solid #aaa;
+  }
+
+  #contact2 .contact2-tel br{
+	display: none;
+  }
+
+  @media screen and (max-width:690px) {
+	#contact2 .contact2-detail,
+	#contact2 .contact2-tel{
+	  width:50%;
+	}
+	#contact2 .contact2-tel br{
+	  display: block;
+	}
+	#contact2 .contact2-detail h2{
+	  font-size: 1.2rem;
+	}
+	#contact2 .contact2-detail p{
+	  text-align: left;
+	}
+  }
+  @media screen and (max-width:400px) {
+	#contact2{
+	  font-size: 0.8rem;
+	}
+  }
+  .bgLRextend::before{
+	animation-name:bgLRextendAnime;
+	animation-duration:1s;
+	animation-fill-mode:forwards;
+	content: "";
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-color: #111;
+  }
+  @keyframes bgLRextendAnime{
+	0% {
+	  transform-origin:left;
+	  transform:scaleX(0);
+	}
+	50% {
+	  transform-origin:left;
+	  transform:scaleX(1);
+	}
+	50.001% {
+	  transform-origin:right;
+	}
+	100% {
+	  transform-origin:right;
+	  transform:scaleX(0);
+	}
+  }
+  .bgRLextend::before{
+	animation-name:bgRLextendAnime;
+	animation-duration:1s;
+	animation-fill-mode:forwards;
+	content: "";
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-color: #111;
+  }
+  @keyframes bgRLextendAnime{
+	0% {
+	  transform-origin:right;
+	  transform:scaleX(0);
+	}
+	50% {
+	  transform-origin:right;
+	  transform:scaleX(1);
+	}
+	50.001% {
+	  transform-origin:left;
+	}
+	100% {
+	  transform-origin:left;
+	  transform:scaleX(0);
+	}
+  }
+  .bgappearTrigger,
+  .bgUDextendTrigger,
+  .bgDUextendTrigger,
+  .bgRLextendTrigger,
+  .bgLRextendTrigger{
+	opacity: 1;
+  }
+
+
+.slide-in {
+	overflow: hidden;
+	display: inline-block;
+	padding: 0 10px; /*英語がはみ出るので見えるように余白追記*/
+  }
+
+  .slide-in_inner {
+	display: inline-block;
+
+  }
+
+  /*左右のアニメーション*/
+  .leftAnime,
+  .rightAnime{
+	opacity: 1;/*事前に透過0にして消しておく*/
+  }
+
+
+  .slideAnimeLeftRight {
+	animation-name: slideText-100;
+	animation-duration:0.8s;
+	animation-fill-mode:forwards;
+	opacity: 0;
+  }
+
+  @keyframes slideText-100 {
+	from {
+	  transform: translateX(-100%); /*要素を左の枠外に移動*/
+	  opacity: 0;
+	}
+
+	to {
+	  transform: translateX(0);/*要素を元の位置に移動*/
+	  opacity: 1;
+	}
+  }
+
+  .slideAnimeRightLeft {
+	animation-name: slideText100;
+	animation-duration:0.8s;
+	animation-fill-mode:forwards;
+	opacity: 0;
+  }
+
+
+  @keyframes slideText100 {
+	from {
+	  transform: translateX(100%);/*要素を右の枠外に移動*/
+	  opacity: 0;
+	}
+
+	to {
+	  transform: translateX(0);/*要素を元の位置に移動*/
+	  opacity: 1;
+	}
+  }
+
+/*=======================footer==================*/
+#footer{
+	border-top: 1px solid #ccc;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-between;
+	position: relative;
+	/* z-index: 3; */
+	background:#000000;
+	color: #FFFFFF;
+	font-family: 'Noto Serif JP', serif;
+  }
+
+#footer a {
+	font-family: 'Noto Serif JP', serif;
+	color: #FFFFFF;
+}
+
+  #footer dl{
+	width:30%;
+  }
+
+  #footer dl dt{
+	font-size: 0.8rem;
+  }
+
+  #footer dl dd{
+	font-size: 2rem;
+	font-family: serif;
+  }
+
+  @media screen and (max-width:900px) {
+	#footer dl{
+	  margin: 50px 0;
+	}
+  }
+
+  @media screen and (max-width:768px) {
+
+	#footer dl dd{
+	  font-size: 1.5rem;
+	}
+
+  }
+
+  #footer .footer-list{
+	width:65%;
+	text-align: right;
+  }
+
+  #footer ul li{
+	display: inline-block;
+	 padding: 0 10px;
+	font-size: 0.8rem;
+	line-height: 3;
+  }
+
+  #footer small{
+	text-align: right;
+	margin: 20px 0 0 0;
+	display: block;
+	width: 100%;
+	font-size: 0.7rem;
+  }
+
+  #footer #page-top span{
+	display: inline-block;
+	width: 13px;
+	height: 13px;
+	border-top: 4px solid #fff;
+	border-left: 4px solid #fff;
+	transform: rotate(45deg);
+  }
+
+
+  @media screen and (max-width:900px){
+	#footer dl,
+	#footer .footer-list,
+	#footer small{
+	  width:100%;
+	  text-align: center;
+	}
+  }
+
+  .customise_contact {
+    padding: 0px;
+  }

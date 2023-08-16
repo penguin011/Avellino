@@ -1,0 +1,245 @@
+@charset "utf-8";
+/* レイアウトのためのCSS */
+.layout{
+	margin: 0 30px 80px 30px;
+
+}
+/*
+body{
+background:#ecf1e9;
+font-family: 'Sawarabi Gothic', sans-serif;
+color: #333;
+font-size:1rem;
+line-height:1.85;
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
+-webkit-text-size-adjust: 100%;
+word-wrap: break-word;
+}
+*/
+
+.submit-btn2{
+
+	border:1px solid #fff;
+	color: #333;
+	text-align: center;
+	padding: 5px 20px;
+	width:200px;
+	margin: 0 auto;
+}
+
+.submit-btn2:hover{
+
+}
+
+ol{
+	margin:0;
+	padding: 0;
+	list-style: none;
+}
+
+
+/*
+img{
+max-width:100%;
+height: auto;
+border-radius: 10px;
+}
+*/
+
+/*
+*{
+box-sizing: border-box
+}
+*/
+/* area */
+
+html{
+	overflow-x: hidden;/*IE11用*/
+}
+
+/*レイアウトのためのCSS*/
+#wrapper{
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	padding: 0 70px;
+	margin-bottom: 100px;
+}
+
+#main-area{
+	width:100%;
+}
+
+
+
+/*1020px以下の見え方*/
+
+@media screen and (max-width:1020px){
+	#wrapper{
+		padding: 0;
+	}
+	#main-area{
+		width:100%;
+		padding: 0 30px;
+	}
+
+
+
+}
+
+
+
+
+
+
+/* heading */
+
+.modaal-container h2,
+#ranking h2,
+#newitems h2{
+	text-align: center;
+	text-transform: none;
+	font-size: 1rem;
+	letter-spacing: 0.1em;
+	color:#000000;
+	margin: 30px 0 30px 0;
+
+}
+
+#ranking h2 span a{
+	text-transform: lowercase;
+	color: #ffffff;
+}
+
+
+@media screen and (max-width:768px){
+	.modaal-container h2,
+	#ranking h2,
+	#newitems h2{
+		margin:50px 0;
+	}
+
+}
+
+.modaal-container h2{
+	margin: 0 0 30px 0;
+}
+
+.modaal-container h2 span,
+#ranking h2 span,
+#newitems h2 span{
+	position: relative;
+	padding: 0 70px;
+}
+
+
+@media screen and (max-width:550px){
+	.modaal-container h2,
+	#ranking h2,
+	#newitems h2{
+		font-size: 1.2em;
+	}
+	.modaal-container h2 span,
+	#ranking h2 span,
+	#newitems h2 span{
+		padding: 0 50px;
+	}
+
+}
+
+.modaal-container h2 span,
+#ranking h2 span,
+#newitems h2 span{
+	background: url(../img/bg_header_01.png) no-repeat left, url(../img/bg_header_02.png) no-repeat right;
+	background-size: 35px 35px;
+	padding: 15px 60px 10px 60px;
+	white-space: nowrap;
+}
+
+
+
+/* ranking */
+
+/*画像の横幅を100%にしてレスポンシブ化*/
+#ranking img{
+	width: 100%;
+	height: auto;
+	vertical-align: bottom;/*画像の下にできる余白を削除*/
+}
+
+.ranking-list{
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	counter-reset: number;
+}
+
+.ranking-list li {
+	position: relative;
+	z-index: 1;
+	width:30%;
+	margin:20px 0;
+	opacity: 1;
+}
+
+.ranking-list .ranking-cap{
+	margin:10px 0 0 0;
+	text-align: center;
+	display: block;
+}
+
+.ranking-cap p{
+	color: #ffffff;
+	font-size: 0.9rem;
+}
+
+@media screen and (max-width:550px){
+	.ranking-list li {
+		width: 46%;
+	}
+
+	.ranking-list li:last-child{
+		display: none;
+	}
+}
+
+.ranking-list li::before {
+	position: absolute;
+	left:-0.5em;
+	top:-0.5em;
+	z-index: 2;
+	counter-increment: number;
+	content: counter(number);
+	background: #262626;
+	display: inline-block;
+	width: 2.5em;
+	height:2.5em;
+	line-height:2.5em;
+	font-size:1.2rem;
+	text-align: center;
+	border-radius: 50%;
+	color: #fff;
+}
+
+@media screen and (max-width:768px){
+	.ranking-list li::before {
+		width: 2em;
+		height:2em;
+		line-height:2em;
+		font-size:1.1rem;
+	}
+
+}
+
+.ranking-list li:nth-child(1)::before {
+	background: #262626; }
+	.ranking-list li:nth-child(2)::before {
+		background: #262626; }
+		.ranking-list li:nth-child(3)::before {
+			background: #262626; }
+
+
+			.ranking-list img{
+				border-radius:3%
+			}

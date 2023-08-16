@@ -1,0 +1,365 @@
+@charset "utf-8";
+
+
+.wrapper {
+  width: 85%;
+  margin: 40px auto 100px auto;
+}
+
+.fadeLeft{
+  animation-name: fadeLeftAnime;
+  animation-duration:1s;
+  animation-fill-mode:forwards;
+  opacity:0;
+}
+
+@keyframes fadeLeftAnime{
+  from {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.fadeLeftTrigger{
+  opacity: 0;
+}
+
+
+/*===========================================================*/
+/* 中心から外に線が伸びる（下部）*/
+/*===========================================================*/
+
+.sort-btn{
+  display: flex;
+  justify-content: center;
+  margin:50px 20px;
+  list-style: none;
+  font-size: 1rem;
+  /*  text-transform: uppercase; */
+}
+
+.sort-btn li{
+  position: relative;
+  cursor: pointer;
+  margin: 0 20px;
+}
+
+.sort-btn li::after {
+  content: '';
+  /*絶対配置で線の位置を決める*/
+  position: absolute;
+  bottom:-5px;
+  left: 25%;
+  /*線の形状*/
+  width: 50%;
+  height: 2px;
+  background:#a0a0a0;
+  /*アニメーションの指定*/
+  transition: all .6s;
+  transform: scale(0, 1);/*X方向0、Y方向1*/
+  transform-origin: center top;/*上部中央基点*/
+}
+
+/*現在地とhoverの設定*/
+.sort-btn li.active::after,
+.sort-btn li:hover::after{
+  transform: scale(1, 1);/*X方向にスケール拡大*/
+}
+
+/*横幅が375px以下になった際の指定*/
+@media only screen and (max-width: 375px) {
+  .sort-btn{
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .sort-btn li{
+    width:48%;
+    margin:0 0 10px 0;
+    text-align:center;
+  }
+}
+
+/*===========================================================*/
+/* 　スクロール途中からリンクボタンの形状が変化 */
+/*===========================================================*/
+
+/*スクロールリンクの形状*/
+.scroll-top {
+  /*表示位置*/
+  position: fixed;
+  right: 20px;
+  bottom: 10px;
+  z-index: 2;
+  /*はじめは非表示*/
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .5s, visibility .5s; /*それぞれに0.5秒の変化のアニメーション*/
+  /*縦書き*/
+  -webkit-writing-mode: vertical-rl;
+  -ms-writing-mode: tb-rl;
+  writing-mode: vertical-rl;
+  /*改行禁止*/
+  white-space: nowrap;
+  /*矢印の動き*/
+  animation: arrowmove 1s ease-in-out infinite;
+}
+
+@keyframes arrowmove{
+  0%{bottom:20px;}
+  50%{bottom:25px;}
+  100%{bottom:20px;}
+}
+
+
+/*.scroll-viewクラスがついたら出現*/
+.scroll-top.scroll-view {
+  opacity: 1;
+  visibility: visible;
+}
+
+/*リンク全体の aタグの形状*/
+.scroll-top a {
+  position: relative;
+  text-decoration: none;
+  color: #666;
+  text-transform: uppercase;
+  font-size:0.8rem;
+  letter-spacing: 0.05em;
+  display: block;
+}
+
+/*スクロールリンクの形状*/
+
+.js-scroll.scroll-top a{
+  color: #aaa;
+}
+
+.js-scroll a::after{
+  content:"";
+  position: absolute;
+  top:0;
+  right:0;
+  width:1px;
+  height: 50px;
+  background:#aaa;
+}
+
+
+.js-scroll a::before {
+  content: "";
+  position: absolute;
+  top: 30px;
+  right: -6px;
+  width: 1px;
+  height: 20px;
+  background: #aaa;
+  transform: skewX(-31deg);
+}
+
+/*Edge IE11 hack*/
+_:-ms-lang(x), .js-scroll a::before{
+  right:-11px;
+}
+
+
+/*ページトップリンクの形状*/
+
+.js-pagetop a::after{
+  content:"";
+  position: absolute;
+  top:0;
+  right:0;
+  width:1px;
+  height: 50px;
+  background:#666;
+}
+
+.js-pagetop a::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: -6px;
+  width: 1px;
+  height: 20px;
+  background: #666;
+  transform: skewX(31deg);
+}
+
+/*Edge IE11 hack*/
+_:-ms-lang(x), .js-pagetop a::before{
+  right:0;
+}
+
+/*===========================================================*/
+/*  動きを組み合わせて全画面で見せる*/
+/*===========================================================*/
+
+#slider {
+  width: 100%;
+  height: 100vh;/*スライダー全体の縦幅を画面の高さいっぱい（100vh）にする*/
+}
+
+/*===========================================================*/
+/*  カテゴリ別に画像を並び替える*/
+/*===========================================================*/
+
+/*＝＝＝Muuriのレイアウトのための調整 */
+.grid {
+  position: relative;/*並び替えの基準点を指定*/
+}
+
+/*各画像の横幅などの設定*/
+.item {
+  display: block;
+  position: absolute;
+  width: 33%;/*横並びで3つ表示*/
+  z-index: 1;
+}
+
+/*内側のボックスの高さが崩れないように維持*/
+.item-content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 30px;
+}
+
+
+
+.item-content a{
+  text-decoration: none;
+}
+
+.item-content span{
+  display: block;
+  text-align: center;
+  letter-spacing: 0.05em;
+  padding: 13px 15px 0 15px;
+}
+
+/*画像の横幅を100%にしてレスポンシブ化*/
+.grid img{
+  width:100%;
+  height:auto;
+  vertical-align: bottom;/*画像の下にできる余白を削除*/
+  border-radius: 20px;
+
+}
+
+/*横幅が768px以下になった際の指定*/
+@media only screen and (max-width: 768px) {
+  .item {
+    width: 49.5%;/*横並びで2つ表示*/
+  }
+  .item-content {
+    padding: 10px;
+  }
+}
+
+/*＝＝＝fancyboxサムネイル背景と画像選択時の枠線の指定*/
+.fancybox-thumbs {
+  background: transparent!important;
+}
+
+.fancybox-thumbs__list a:before {
+  border: 6px solid #FA999B;
+}
+
+.fancybox-caption__body{
+  letter-spacing: 0.1em;
+}
+
+
+/*===========================================================*/
+/*  印象編 4-12 順番に現れる（CSS x jQuery） */
+/*===========================================================*/
+
+.item{
+  opacity: 0;
+}
+
+/*===　印象編 4-1 ふわっ（下から）　==*/
+
+.fadeUp {
+  animation-name: fadeUpAnime;
+  animation-duration:0.5s;
+  animation-fill-mode:forwards;
+  opacity: 0;
+}
+
+/*ギャラリーのプラグインとの兼ね合いでtransform: translateY(100px);は使用せずmarginで代用*/
+@keyframes fadeUpAnime{
+  from {
+    opacity: 0;
+    margin-top:100px;
+  }
+
+  to {
+    opacity: 1;
+    margin-top:0;
+  }
+}
+
+.fadeUpNew {
+  animation-name: fadeUpAnimeNew;
+  animation-duration:0.5s;
+  animation-fill-mode:forwards;
+  opacity: 0;
+}
+
+/*ギャラリーのプラグインとの兼ね合いでtransform: translateY(100px);は使用せずmarginで代用*/
+@keyframes fadeUpAnimeNew{
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/*===========================================================*/
+/*    印象編　8-1　テキストがバラバラに出現 */
+/*===========================================================*/
+
+.TextRandomAnime span{
+  opacity: 0;
+}
+.TextRandomAnime.appearRandomtext span{
+  animation:text_randomanime_on .5s ease-out forwards;
+}
+
+@keyframes text_randomanime_on {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+.TextRandomAnime.appearRandomtext span:nth-child(2n) {
+  animation-delay: 0.7s;/* spanのついた2の倍数の文字列の変化を0.7秒遅らせる*/
+}
+.TextRandomAnime.appearRandomtext span:nth-child(3n+1) {
+  animation-delay: 0.35s;/* spanのついた3の倍数＋1の文字列の変化を0.35秒遅らせる*/
+}
+
+/*===========================================================*/
+/*  印象編　7-1　画像が拡大*/
+/*===========================================================*/
+
+.img-box{
+  overflow: hidden;
+}
+
+.grid img{
+  transform: scale(1);
+  transition: .7s ease-in-out;/*移り変わる速さを変更したい場合はこの数値を変更*/
+}
+
+.grid a:hover img{/*hoverした時の変化*/
+  transform: scale(1.08);/*拡大の値を変更したい場合はこの数値を変更*/
+}

@@ -1,0 +1,186 @@
+@charset "utf-8";
+
+.image2 img{
+	border-radius: 30px;
+}
+
+/*===========================================================*/
+/*    印象編　8-1　テキストがバラバラに出現 */
+/*===========================================================*/
+
+.TextRandomAnime5{
+	-webkit-text-stroke: 0.3px #fff;
+	text-stroke: 0.3px #fff;
+}
+
+.TextRandomAnime5 span{
+	opacity: 0;
+}
+.TextRandomAnime5.appearRandomtext span{
+	animation:text_randomanime_on .5s ease-out forwards;
+}
+
+@keyframes text_randomanime_on {
+	0% {opacity:0;}
+	100% {opacity:1;}
+}
+
+.TextRandomAnime5.appearRandomtext span:nth-child(2n) {
+	animation-delay: 0.7s;/* spanのついた2の倍数の文字列の変化を0.7秒遅らせる*/
+}
+.TextRandomAnime5.appearRandomtext span:nth-child(3n+1) {
+	animation-delay: 0.35s;/* spanのついた3の倍数＋1の文字列の変化を0.35秒遅らせる*/
+}
+
+/*===========================================================*/
+/*  動きを組み合わせて全画面で見せる*/
+/*===========================================================*/
+
+#sliderr {
+	width: 100%;
+	height: 100vh;/*スライダー全体の縦幅を画面の高さいっぱい（100vh）にする*/
+	background-image: url("../img/01.jpg");   /* 背景画像指定 */
+	background-image: 200%;   /* 背景画像指定 */
+	background-size: cover;
+	/*background-color:blue;*/
+}
+
+@media screen and (max-width:932px){
+
+	#sliderr {
+
+		background-image: url("../img/01_581.jpg");   /* 背景画像指定 */
+
+	}
+
+}
+
+/*===========================================================*/
+/* 数字カウントアップ*/
+/*===========================================================*/
+
+/* Loading背景画面設定　*/
+
+#splash5 {
+	/*fixedで全面に固定*/
+	/*	position: fixed;
+	z-index: 99999; */
+	width: 100%;
+	height: 100%;
+	text-align:center;
+	color:#fff;
+
+	background:linear-gradient(45deg, #3bade3,#9844b7,#44ea76);/*グラデーションを定義*/
+	background-size: 200% 200%;/*サイズを大きくひきのばす*/
+	animation: bggradient 20s ease infinite;
+
+
+}
+
+
+/* heading */
+
+.heading-blockk{
+	position: absolute;
+	z-index: 2;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	text-align: center;
+	/*background-color:red; */
+
+
+}
+
+.heading-blockk h1{
+	font-size:6vw;
+	letter-spacing: 0.2em;
+	color: #fff;
+	-webkit-text-stroke: 1px #000;
+	text-stroke: 1px #000;
+	line-height: 1;
+	font-family: serif;
+}
+
+.heading-blockk p{
+	font-size:2.1vw;
+	letter-spacing: 0.2em;
+	color: #fff;
+	-webkit-text-stroke: 1px #000;
+	text-stroke: 1px #000;
+	font-family: 'Hiragino Kaku Gothic Pro';
+	font-weight:bold;
+}
+/*横幅が768px以下になった際の指定*/
+@media only screen and (max-width:768px) {
+	.heading-blockk h1{
+		font-size:2.1em;
+	}
+	.heading-blockk p{
+		font-size:1.1em;
+	}
+}
+
+/* sns icon */
+#sns-icon img{
+	width: 20px;
+}
+
+#sns-icon{
+	position: absolute;
+	right:20px;
+	top:45%;
+}
+
+#sns-icon li{
+	margin:0 0 15px 0;
+}
+
+
+
+#header{
+	/*	position: fixed;*//*fixedを設定して固定*/
+	/*	height: 70px;*//*高さ指定*/
+	width:100%;/*横幅指定*/
+	/*z-index: 1;/*最前面へ*/
+}
+
+
+
+/*========= レイアウトのためのCSS ===============*/
+
+h1{
+	font-size:2rem;
+	text-align: center;
+	text-transform: uppercase;
+	padding: 10x; 
+}
+
+h2{
+	font-size:1.2rem;
+	text-align: center;
+	/*  padding: 10x; */
+	margin: 14px;
+}
+/*
+p{
+margin-top:20px;
+}
+
+small{
+background:#333;
+color:#fff;
+display: block;
+text-align: center;
+padding:20px;
+}
+
+
+section{
+padding:30px;
+}
+
+section:nth-child(2n){
+background:#f3f3f3;
+}
+*/

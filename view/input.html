@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="../../../css/style.css">
+
+<title>よくわかるPHPの教科書</title>
+</head>
+<body>
+<header>
+<h1 class="font-weight-normal">よくわかるPHPの教科書</h1>
+</header>
+
+<main>
+<h2>フォームからの情報を保存する</h2>
+
+<form action="dbtestinsert.php" method="post" enctype="multipart/form-data">
+
+    <p><b>code</b></p>
+    <input type="text" name="code" placeholder="code">
+    <br>
+    <p><b>name</b></p>
+    <input type="text" name="name" placeholder="name">
+    <br>
+    <p><b>password</b></p>
+    <input type="text" name="password" placeholder="pass">
+    <br>
+    <p><b>picture</b></p>
+    <input type="text" name="picture" size="35" placeholder="picture">
+    <br>
+    <p><b>pictureblobm</b></p>
+    <input type="file" name="pictureblobm" size="35">
+    <br>
+    <!--<textarea name="name" cols="50" rows="10" placeholder="自由にメモを残してください"></textarea><br> -->
+    <button type="submit">登録する</button>
+</form>
+</main>
+</body>
+</html>

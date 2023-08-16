@@ -1,0 +1,862 @@
+@charset "utf-8";
+
+/*==================================================
+<section id="message">
+===================================*/
+
+.heading{
+  font-family: 'Alex Brush', cursive;
+  font-size: 5vw;
+  font-weight: normal;
+  color: #fff;
+  animation-delay: 0.3s;
+}
+
+@media screen and (max-width:960px) {
+  .heading{
+    font-size:3.5rem;
+  }
+}
+
+#lead h2.heading{
+  position: absolute;
+  top:200px;
+  right:10%;
+}
+
+#lead h2.heading{
+  top: 160px;
+}
+
+/*==================================================
+機能編　4-2-5　背景色が伸びる（中央から外）
+===================================*/
+
+/*========= ローディング画面のためのCSS ===============*/
+#splash {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background:#fff;
+  z-index: 9999999;
+  text-align:center;
+  color:#fff;
+}
+
+#splash-logo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/*========= 画面遷移のためのCSS ===============*/
+
+/*画面遷移アニメーション*/
+
+.splashbg1,
+.splashbg2{
+  display: none;
+}
+
+body.appear .splashbg1,
+body.appear .splashbg2{
+  display:block;
+}
+
+/*右に消えるエリア*/
+body.appear .splashbg1{
+  animation-name:PageAnime;
+  animation-duration:1.2s;
+  animation-timing-function:ease-in-out;
+  animation-fill-mode:forwards;
+  content: "";
+  position:fixed;
+  z-index: 999;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left:50%;
+  transform: scaleX(1);
+  background-color:#000;/*伸びる背景色の設定*/
+}
+
+@keyframes PageAnime{
+  0% {
+    transform-origin:left;
+    transform:scaleX(1);
+  }
+  50% {
+    transform-origin:right;
+  }
+  100% {
+    transform-origin:right;
+    transform:scaleX(0);
+  }
+}
+
+/*左に消えるエリア*/
+body.appear .splashbg2{
+  animation-name:PageAnime2;
+  animation-duration:1.2s;
+  animation-timing-function:ease-in-out;
+  animation-fill-mode:forwards;
+  content: "";
+  position:fixed;
+  z-index: 999;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  right:50%;
+  transform: scaleX(1);
+  background-color:#fff;/*伸びる背景色の設定*/
+}
+
+@keyframes PageAnime2{
+  0% {
+    transform-origin:right;
+    transform:scaleX(1);
+  }
+
+  50% {
+    transform-origin:left;
+  }
+  100% {
+    transform-origin:left;
+    transform:scaleX(0);
+  }
+}
+
+/*画面遷移の後現れるコンテンツ設定*/
+#wrapper_bk{
+  opacity: 0;/*はじめは透過0に*/
+}
+
+/*bodyにappearクラスがついたら出現*/
+body.appear #wrapper{
+  animation-name:PageAnimeAppear;
+  animation-duration:1s;
+  animation-delay:0.2s;
+  animation-fill-mode:forwards;
+  opacity: 0;
+}
+
+@keyframes PageAnimeAppear{
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/*==================================================
+機能編　5-1-25 クリックしたらナビ背景コンテンツがぼかされる※IE11非対応
+===================================*/
+
+/*========= ぼかしのためのCSS ===============*/
+
+.mainblur{
+  filter: blur(8px);
+}
+
+
+/*========= ナビゲーションのためのCSS ===============*/
+
+#g-nav{
+  /*position:fixed;にし、z-indexの数値を小さくして最背面へ*/
+  position:fixed;
+  z-index: -1;
+  opacity: 0;/*はじめは透過0*/
+  /*ナビの位置と形状*/
+  top:0;
+  width:100%;
+  height: 100vh;/*ナビの高さ*/
+  background:rgba(0,0,0,0.8);/*背景を少し透過させる*/
+  /*動き*/
+  transition: all 0.3s;
+}
+
+/*アクティブクラスがついたら透過なしにして最前面へ*/
+#g-nav.panelactive{
+  opacity: 1;
+  z-index:999;
+}
+
+/*ナビゲーションの縦スクロール*/
+#g-nav.panelactive #g-nav-list{
+  /*ナビの数が増えた場合縦スクロール*/
+  position: fixed;
+  z-index: 999;
+  width: 100%;
+  height: 100vh;/*表示する高さ*/
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/*ナビゲーション*/
+#g-nav ul {
+  display: none;/*はじめは非表示*/
+  /*ナビゲーション天地中央揃え*/
+  position: absolute;
+  z-index: 999;
+  top:50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+}
+
+#g-nav.panelactive ul {
+  display: block;
+}
+/*リストのレイアウト設定*/
+
+#g-nav li{
+  list-style: none;
+  text-align: center;
+}
+
+#g-nav li a{
+  color: #fff;
+  text-decoration: none;
+  /*	padding:10px; */
+  display: block;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: bold;
+}
+
+/*==================================================
+機能編　5-2-2 ボタン：2本線が×に
+===================================*/
+
+/*ボタン外側*/
+.openbtn{
+  position:fixed;
+  z-index: 9999;/*ボタンを最前面に*/
+  top:10px;
+  right: 10px;
+  cursor: pointer;
+  width: 50px;
+  height:50px;
+}
+
+/*ボタン内側*/
+
+.openbtn span{
+  display: inline-block;
+  transition: all .4s;/*アニメーションの設定*/
+  position: absolute;
+  left: 14px;
+  height: 3px;
+  background-color: #262626;
+  border-radius: 2px;
+}
+
+.openbtn span:nth-of-type(1) {
+  top:15px;
+  width:50%;
+}
+
+.openbtn span:nth-of-type(2) {
+  top:23px;
+  width: 50%;
+}
+
+.openbtn span:nth-of-type(3) {
+  top:31px;
+  width:50%;
+}
+
+/*activeクラスが付与されると線が回転して×に*/
+
+.openbtn.active span:nth-of-type(1) {
+  top: 20px;
+  left: 16px;
+  transform: translateY(6px) rotate(-45deg);
+  width: 35%;
+}
+
+.openbtn.active span:nth-of-type(2) {
+  top: 32px;
+  left: 16px;
+  transform: translateY(-6px) rotate(45deg);
+  width: 35%;
+}
+
+.openbtn.active span:nth-of-type(3) {
+  top: 32px;
+  left: 16px;
+  transform: translateY(-6px) rotate(45deg);
+  width: 35%;
+}
+
+/*==================================================
+機能編　9-1-2 丸が動いてスクロールを促す
+===================================*/
+
+/*スクロールダウン全体の場所*/
+.scrolldown2{
+  /*描画位置※位置は適宜調整してください*/
+  position:fixed;
+  bottom:10px;
+  left:50%;
+  z-index: 2;
+}
+
+/*Scrollテキストの描写*/
+.scrolldown2 span{
+  /*描画位置*/
+  position: absolute;
+  left:10px;
+  bottom:10px;
+  /*テキストの形状*/
+  color: #eee;
+  font-size: 0.7rem;
+  letter-spacing: 0.05em;
+  /*縦書き設定*/
+  -ms-writing-mode: tb-rl;
+  -webkit-writing-mode: vertical-rl;
+  writing-mode: vertical-rl;
+}
+
+/* 丸の描写 */
+.scrolldown2:before {
+  content: "";
+  /*描画位置*/
+  position: absolute;
+  bottom:0;
+  left:-4px;
+  /*丸の形状*/
+  width:10px;
+  height:10px;
+  border-radius: 50%;
+  background:#eee;
+  /*丸の動き1.6秒かけて透過し、永遠にループ*/
+  animation:
+  circlemove 1.6s ease-in-out infinite,
+  cirlemovehide 1.6s ease-out infinite;
+}
+
+/*下からの距離が変化して丸の全体が上から下に動く*/
+@keyframes circlemove{
+  0%{bottom:45px;}
+  100%{bottom:-5px;}
+}
+
+/*上から下にかけて丸が透過→不透明→透過する*/
+@keyframes cirlemovehide{
+  0%{opacity:0}
+  50%{opacity:1;}
+  80%{opacity:0.9;}
+  100%{opacity:0;}
+}
+
+/* 線の描写 */
+.scrolldown2:after{
+  content:"";
+  /*描画位置*/
+  position: absolute;
+  bottom:0;
+  left:0;
+  /*線の形状*/
+  width:2px;
+  height: 50px;
+  background:#eee;
+}
+
+/*==================================================
+機能編　　7-1-21	線から塗に変化（上から下）
+===================================*/
+
+/* ボタン共通設定 */
+.btn04 {
+  /*線の基点とするためrelativeを指定*/
+  position: relative;
+  /*ボタンの形状*/
+  display:inline-block;
+   padding:10px 30px;
+  color:#333;
+  border:1px solid #ccc;
+  text-decoration: none;
+  outline: none;
+  /*はみ出す背景色を隠す*/
+  overflow: hidden;
+  color:#fff;
+}
+
+/*hoverした際のボタンの形状*/
+.btn04:hover {
+  color:#000;
+  border-color: transparent;
+  /*色の変化を遅らせる*/
+  transition-delay: .6s;
+  background: #fff;
+}
+
+/*線の設定*/
+.btn04 span{
+  display: block;
+  z-index: 2;
+}
+
+/*== 線から塗に変化（上から下） */
+
+/*線の設定*/
+.bordertop span::before,
+.bordertop span::after {
+  content: '';
+  /*絶対配置で線の位置を決める*/
+  position: absolute;
+  width:1px;
+  height: 0;
+  /*線の形状*/
+  background: #fff;
+  /*アニメーションの設定*/
+  transition: all .3s;
+}
+
+/*左線*/
+.bordertop span::before {
+  left:0;
+  top:0;
+}
+
+/*右線*/
+.bordertop span::after {
+  right:0;
+  top:0;
+}
+
+/*hoverをすると線が伸びる*/
+.bordertop:hover span::before,
+.bordertop:hover span::after {
+  height: 100%;
+}
+
+/*背景の設定*/
+.bordertop::before{
+  content: '';
+  /*絶対配置で線の位置を決める*/
+  position: absolute;
+  left: 0;
+  top:0;
+  z-index: -1;
+  /*背景の形状*/
+  width: 100%;
+  height: 0;
+  background:#fff;
+  /*アニメーションの設定*/
+  transition: all .3s;
+}
+
+/*hoverをすると背景が伸びる*/
+.bordertop:hover::before{
+  height: 100%;
+  /*0.4秒遅れてアニメーション*/
+  transition-delay: .4s;
+}
+
+
+/*==================================================
+機能編　8-1-4	ページ内にある指定の範囲内で下から出現
+===================================*/
+
+/*リンクの形状*/
+#page-top a{
+  display: flex;
+  justify-content:center;
+  align-items:center;
+  background:#000;
+  width: 60px;
+  height: 50px;
+  color: #fff;
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-size:0.6rem;
+  transition:all 0.3s;
+}
+
+#page-top a:hover{
+  background: #999;
+  height: 55px;
+}
+
+/*リンクを右下に固定*/
+#page-top {
+  position: fixed;
+  right: 0;
+  bottom:0;
+  z-index: 2;
+  /*はじめは非表示*/
+  opacity: 0;
+  transform: translateY(100px);
+}
+
+/*　上に上がる動き　*/
+
+#page-top.UpMove{
+  animation: UpAnime 0.5s forwards;
+}
+@keyframes UpAnime{
+  from {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/*　下に下がる動き　*/
+
+#page-top.DownMove{
+  animation: DownAnime 0.5s forwards;
+}
+@keyframes DownAnime{
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(100px);
+  }
+}
+
+/*==================================================
+機能編　6-1-6 複数画像を並列に見せる
+===================================*/
+.slider {/*横幅94%で左右に余白を持たせて中央寄せ*/
+  width:94%;
+  margin:0 auto;
+}
+
+.slider img {
+  width:100%;/*スライダー内の画像を横幅100%に*/
+  height:auto;
+}
+
+/*slickのJSで書かれるタグ内、スライド左右の余白調整*/
+
+.slider .slick-slide {
+  margin:0 10px;
+}
+
+/*矢印の設定*/
+
+/*戻る、次へ矢印の位置*/
+.slick-prev,
+.slick-next {
+  position: absolute;/*絶対配置にする*/
+  top: 42%;
+  cursor: pointer;/*マウスカーソルを指マークに*/
+  outline: none;/*クリックをしたら出てくる枠線を消す*/
+  border-top: 2px solid #999;/*矢印の色*/
+  border-right: 2px solid #999;/*矢印の色*/
+  height: 15px;
+  width: 15px;
+}
+
+.slick-prev {/*戻る矢印の位置と形状*/
+  left: -1.5%;
+  transform: rotate(-135deg);
+}
+
+.slick-next {/*次へ矢印の位置と形状*/
+  right: -1.5%;
+  transform: rotate(45deg);
+}
+
+/*ドットナビゲーションの設定*/
+
+.slick-dots {
+  text-align:center;
+  margin:20px 0 0 0;
+}
+
+.slick-dots li {
+  display:inline-block;
+  margin:0 5px;
+}
+
+.slick-dots button {
+  color: transparent;
+  outline: none;
+  width:8px;/*ドットボタンのサイズ*/
+  height:8px;/*ドットボタンのサイズ*/
+  display:block;
+  border-radius:50%;
+  background:#ccc;/*ドットボタンの色*/
+}
+
+.slick-dots .slick-active button{
+  background:#fff;/*ドットボタンの現在地表示の色*/
+}
+
+/*==================================================
+印象
+===================================*/
+
+/* 4-1 ふわっ（その場で） */
+.fadeIn{
+  animation-name: fadeInAnime;
+  animation-duration:2s;/*ゆっくり出現するため数値変更*/
+  animation-fill-mode:forwards;
+  opacity:0;
+}
+
+@keyframes fadeInAnime{
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+/* 4-4 ボンッ（拡大） */
+.zoomOut{
+  animation-name: zoomOutAnime;
+  animation-duration:0.5s;
+  animation-fill-mode:forwards;
+}
+
+@keyframes zoomOutAnime{
+  from {
+    transform: scale(1.2);
+    opacity: 0;
+  }
+
+  to {
+    transform:scale(1);
+    opacity: 1;
+  }
+}
+
+/* スクロールをしたら出現する要素にはじめに透過0を指定　*/
+
+.zoomOutTrigger{
+  opacity: 0;
+}
+
+/*===========================================================*/
+/* 印象編　8 テキストの動き　/
+/*===========================================================*/
+
+/*========= 8-2 テキストが流れるように出現（左から右） ===============*/
+
+/*全共通*/
+
+.slide-in {
+  overflow: hidden;
+  display: inline-block;
+  padding: 0 10px; /*英語がはみ出るので見えるように余白追記*/
+}
+
+.slide-in_inner {
+  display: inline-block;
+
+}
+
+/*左右のアニメーション*/
+.leftAnime,
+.rightAnime{
+  opacity: 0;/*事前に透過0にして消しておく*/
+}
+
+.slideAnimeLeftRight {
+  animation-name: slideText-100;
+  animation-duration:0.8s;
+  animation-fill-mode:forwards;
+  opacity: 0;
+}
+
+@keyframes slideText-100 {
+  from {
+    transform: translateX(-100%); /*要素を左の枠外に移動*/
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);/*要素を元の位置に移動*/
+    opacity: 1;
+  }
+}
+
+.slideAnimeRightLeft {
+  animation-name: slideText100;
+  animation-duration:0.8s;
+  animation-fill-mode:forwards;
+  opacity: 0;
+}
+
+
+@keyframes slideText100 {
+  from {
+    transform: translateX(100%);/*要素を右の枠外に移動*/
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);/*要素を元の位置に移動*/
+    opacity: 1;
+  }
+}
+
+/*========= 8-9 テキストがじわっと出現 ===============*/
+
+.blur{
+  animation-name: blurAnime;
+  animation-duration:1s;
+  animation-fill-mode:forwards;
+}
+
+@keyframes blurAnime{
+  from {
+    filter: blur(10px);
+    transform: scale(1.02);
+    opacity: 0;
+  }
+
+  to {
+    filter: blur(0);
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.blurTrigger{
+  opacity: 0;
+}
+
+
+
+/*========= 8-17　テキストがほのかに光りながら出現 ===============*/
+
+.glowAnime span{opacity: 0;}
+.glowAnime.glow span{ animation:glow_anime_on 1s ease-out forwards; }
+@keyframes glow_anime_on{
+  0% { opacity:0; text-shadow: 0 0 0 #fff,0 0 0 #fff;}
+  50% { opacity:1;text-shadow: 0 0 10px #fff,0 0 15px #fff; }
+  100% { opacity:1; text-shadow: 0 0 0 #fff,0 0 0 #fff;}
+}
+
+
+/*==================================================
+7 画像リンクの動き
+===================================*/
+
+span.mask{
+  display: block;/*画像をくくるspanタグをブロック要素にする*/
+  overflow: hidden;/*はみ出ているものを隠す*/
+}
+
+/*　7-9 波紋　*/
+
+.circle span.mask{
+  position: relative;/*波紋の基点となる位置を定義*/
+}
+
+.circle span.mask::before {
+  position: absolute;
+  content: '';
+  transform: scale(0);/*円の大きさ初期値は0*/
+  opacity: 0;/*透過0*/
+  width:100%;/*円のサイズ指定*/
+  height:100%;/*円のサイズ指定*/
+  border-radius:50%;/*円の角丸指定*/
+  background: rgba(255,255,255,0.2);/*円の背景色*/
+}
+
+.circle span.mask:hover::before {/*hoverした時の変化*/
+  animation: circle 0.75s;/*アニメーションの名前と速度を定義*/
+}
+
+@keyframes circle {
+  0% {
+    transform: scale(0);
+    opacity: 1;/*透過なし*/
+  }
+  30% {
+    opacity: 1;
+  }
+  100% {
+    transform: scale(2);/*アニメーションで大きくなった2倍の円の指定*/
+  }
+}
+
+/* 7-11 背景が出現＋テキスト（上から） */
+
+.bgDU,
+.bgDU .mask{
+  display: block;
+  position:relative;/*背景色とテキストの基点となる位置を定義*/
+  overflow: hidden;
+}
+
+.bgDU .mask::before{
+  content:'';
+  position: absolute;
+  z-index: 2;
+  left:0;
+  top:0;
+  opacity:0;/*透過0*/
+  transition: .3s ease-in-out;/*移り変わる速さを変更したい場合はこの数値を変更*/
+  transform: translateY(100%);
+  background:#e2a2b2;/*背景色*/
+  width:100%;
+  height: 100%;
+}
+
+.bgDU:hover .mask::before{/*hoverした時の変化*/
+  opacity:1;/*透過なしに変化*/
+  transform: translateY(0);
+}
+
+.bgDU .cap{/*画像の上のテキスト*/
+  position: absolute;
+  opacity:0;/*透過0*/
+  transition: .5s ease-in-out;/*移り変わる速さを変更したい場合はこの数値を変更*/
+  z-index:3;/*テキストを前面に出す*/
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);/*テキストの位置中央指定*/
+  color: #fff;/*テキストの色を変えたい場合はここを修正*/
+}
+
+.bgDU:hover .cap{/*hoverした時の変化*/
+  opacity:1;/*透過なしに変化*/
+}
+
+/*==================================================
+印象編　6-7 スクロールするとヘッダー背景画像が拡大（エリアの動き）
+===================================*/
+/*
+#header{
+position: relative;*//*背景を設定するdivの基点とするためrelativeをかける*/
+/*    width: 100%;
+height:100vh;
+overflow: hidden;
+}
+*/
+#header-img{
+  position: fixed;/*背景を固定するためfixedをかける*/
+  z-index: 1;/*#container,#footerよりも下に配置するために数値を小さくする*/
+  top: 0;/*topの位置がJSで変化*/
+  /*以下画面で背景画像を表示させるための指定*/
+  width: 100%;
+  height:100vh;
+  /*background: url("../img/main.jpg") no-repeat top center;*//*背景画像の設定*/
+  background-size:cover;
+  transform-origin:center;/*変化する基点を中心からに設定*/
+}
+
+#container,
+#footer{
+  position: relative;/*#header-imgよりも配置を上にするためにrelativeをつける*/
+  z-index: 3;/*#header-imgよりもz-indexの値を大きな数値にして上に表示*/
+  background:#000000;
+
+}

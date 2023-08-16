@@ -1,0 +1,155 @@
+@charset "utf-8";
+/*
+.fadeLeft{
+animation-name: fadeLeftAnime;
+animation-duration:1s;
+animation-fill-mode:forwards;
+opacity:0;
+}
+
+@keyframes fadeLeftAnime{
+from {
+opacity: 0;
+transform: translateX(-100px);
+}
+
+to {
+opacity: 1;
+transform: translateX(0);
+}
+}
+
+.fadeLeftTrigger{
+opacity: 0;
+}
+
+*/
+.addtext{
+  padding-top: 40px;
+  padding-bottom: 100px;
+}
+
+.title{
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+.confirm-text{
+  padding: 0 40px 20px 40px;
+
+}
+
+
+
+/*==================================================
+印象
+===================================*/
+/* 4-1 ふわっ（下から） */
+
+/*
+.fadeUp{
+animation-name: fadeUpAnime;
+animation-duration:0.5s;
+animation-fill-mode:forwards;
+opacity:0;
+}
+
+@keyframes fadeUpAnime{
+from {
+opacity: 0;
+transform: translateY(100px);
+}
+
+to {
+opacity: 1;
+transform: translateY(0);
+}
+}
+*/
+/* 4-1 ふわっ（上から）*/
+
+.fadeDown{
+  animation-name: fadeDownAnime;
+  animation-duration:0.5s;
+  animation-fill-mode:forwards;
+  opacity:0;
+}
+
+@keyframes fadeDownAnime{
+  from {
+    opacity: 0;
+    transform: translateY(-100px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* スマホ表示用。flipRightTriggerを指定している親要素に指定しないとうまく動かない*/
+#ranking{
+  transform:  translate3d(0, 0, 0);
+  padding-bottom: 50px;
+}
+
+/* 4-2 パタッ（右へ） */
+.flipRight{
+  animation-name: flipRightAnime;
+  animation-duration:0.5s;
+  animation-fill-mode:forwards;
+  perspective-origin: right center;
+  opacity:0;
+}
+
+@keyframes flipRightAnime{
+  from {
+    transform: perspective(600px) translate3d(0, 0, 0) rotateY(-30deg);
+    opacity: 0;
+  }
+
+  to {
+    transform: perspective(600px) translate3d(0, 0, 0) rotateY(0deg);
+    opacity: 1;
+  }
+}
+
+/* スクロールをしたら出現する要素にはじめに透過0を指定　*/
+
+.flipRightTrigger,
+.fadeDownTrigger{
+  opacity: 0;
+}
+
+
+
+
+/*　7-8　キラッ　*/
+
+.shine span.mask{
+  position: relative;/*キラッの基点となる位置を定義*/
+  display: block;
+  overflow: hidden;
+}
+
+.shine span.mask::before {
+  position: absolute;
+  content: '';
+  width: 50%;/*キラッの横幅*/
+  height: 100%;/*キラッの縦幅*/
+  top: 0;/*.shine span.maskのトップ0を基点*/
+  left: -75%;/*画面の見えていない左から右へ移動するスタート地点*/
+  background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,.3) 100%);
+  transform: skewX(-25deg);/*背景白透過を斜めに*/
+}
+
+.shine span.mask:hover::before {/*hoverした時の変化*/
+  animation: shine 0.7s;/*アニメーションの名前と速度を定義*/
+}
+
+@keyframes shine {
+  100% {
+    left: 125%;/*画面の見えていない左から右へ移動する終了地点*/
+  }
+}

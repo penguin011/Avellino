@@ -1,0 +1,151 @@
+/*
+Copyright (c) 2010, Yahoo! Inc. All rights reserved.
+Code licensed under the BSD License:
+http://developer.yahoo.com/yui/license.html
+version: 2.8.1
+*/
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,button,textarea,p,blockquote,th,td{margin:0;padding:0;}table{border-collapse:collapse;border-spacing:0;}fieldset,img{border:0;}address,caption,cite,code,dfn,em,strong,th,var,optgroup{font-style:inherit;font-weight:inherit;}del,ins{text-decoration:none;}li{list-style:none;}caption,th{text-align:left;}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}q:before,q:after{content:'';}abbr,acronym{border:0;font-variant:normal;}sup{vertical-align:baseline;}sub{vertical-align:baseline;}legend{color:#000;}input,button,textarea,select,optgroup,option{font-family:inherit;font-size:inherit;font-style:inherit;font-weight:inherit;}input,button,textarea,select{*font-size:100%;}
+
+/*
+Copyright (c) 2010, Yahoo! Inc. All rights reserved.
+Code licensed under the BSD License:
+http://developer.yahoo.com/yui/license.html
+version: 2.8.1
+*/
+body{font:13px/1.231 arial,helvetica,clean,sans-serif;*font-size:small;*font:x-small;}select,input,button,textarea,button{font:99% arial,helvetica,clean,sans-serif;}table{font-size:inherit;font:100%;}pre,code,kbd,samp,tt{font-family:"vdl-v7mincho", "fot-udmincho-pr6n",monospace;*font-size:100%;line-height:100%;}
+
+
+
+@import url("https://use.typekit.net/zlb8tlm.css");
+@import url('https://fonts.googleapis.com/css2?family=Caveat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sacramento&display=swap');
+
+body {
+	background: url(images/bg_main.png) top center repeat-y #ececec;
+	color: #333;
+}
+
+#wrap {
+	width: 100%;
+	margin: 0 auto;
+}
+
+#head {
+	border-left: 1px solid #d4d4d4;
+	border-right: 1px solid #d4d4d4;
+	border-bottom: 1px solid #d4d4d4;
+	background: url(images/bg_head.png) bottom left repeat-x #696969;
+	color: #fff;
+	padding: 20px;
+	margin-bottom: 20px;
+}
+
+h1 {
+	background: url(images/bg_ttl.png) top left no-repeat;
+	padding-left: 25px;
+	font-size: 100%;
+	font-weight: bold;
+}
+
+h2 {
+	font-weight: bold;
+	margin-bottom: 0.5em;
+}
+
+#content {
+	padding: 20px;
+	background: url(images/bg_content.png) left bottom no-repeat #fffafa;
+	width: 720px;
+	min-height: 490px;
+	margin: 0 auto;
+	margin-bottom: 10px;
+	font-size: 100%;
+	/*font-size: 153.9%;*/
+}
+
+* html #content {
+	height: 490px;
+}
+
+p {
+	line-height: 1.2em;
+	margin-bottom: 0.5em;
+}
+
+dl {
+	margin-bottom: 10px;
+}
+dt {
+	border-left: 5px solid #106eb7;
+	padding-left: 5px;
+	margin-bottom: 5px;
+}
+dd {
+	margin-bottom: 0.5em;
+}
+
+.required {
+	background-color: #BB1850;
+	color: #fff;
+	font-size: 90%;
+	padding: 2px;
+	margin-left: 10px;
+}
+
+#foot {
+	width: 780px;
+	text-align: right;
+}
+
+th, td {
+	border: 1px solid #999;
+	padding: 3px;
+}
+
+th {
+	background-color: #106eb7;
+	color: #fff;
+	font-weight: bold;
+}
+
+li {
+	list-style: circle;
+	margin-left: 20px;
+	margin-bottom: 0.5em;
+}
+
+.paging {
+	margin-top: 10px;
+	text-align: center;
+}
+.paging li {
+	display: inline;
+	list-style: none;
+}
+
+.error {
+	font-size: 90%;
+	color: #BB1850;
+}
+
+#lead {
+	margin-bottom: 1em;
+}
+
+.msg {
+	clear: both;
+	border-top: 1px solid #ccc;
+	padding: 10px 0;
+}
+.msg img {
+	float: left;
+	margin-right: 5px;
+}
+.msg p {
+	margin: 0;
+}
+.msg .day,
+.msg .day a {
+	font-size: 80%;
+	color: #999;
+}

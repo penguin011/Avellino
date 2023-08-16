@@ -1,0 +1,267 @@
+@charset "utf-8";
+
+
+
+
+.inner{
+  width:100%;
+  margin:0 auto;
+  padding:70px;
+}
+
+@media screen and (max-width:940px) {
+  .inner{
+    padding:70px 30px 70px 30px;
+  }
+}
+
+
+/* ボタン共通設定 */
+.btn04 {
+  /*線の基点とするためrelativeを指定*/
+  position: relative;
+  /*ボタンの形状*/
+  display:inline-block;
+  padding:10px 30px;
+  color:#333;
+  border:1px solid #ccc;
+  text-decoration: none;
+  outline: none;
+  /*はみ出す背景色を隠す*/
+  overflow: hidden;
+}
+
+/*hoverした際のボタンの形状*/
+.btn04:hover {
+  color:#fff;
+  border-color: transparent;
+  /*色の変化を遅らせる*/
+  transition-delay: .6s;
+}
+
+/*線の設定*/
+.btn04 span{
+  display: block;
+  z-index: 2;
+}
+
+/* contact2 */
+
+#contact2{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row-reverse;
+}
+
+#contact2 .contact2-img{
+  width:50%;
+  min-height: 300px;
+  background:url("../img/gif/Printing_.png") no-repeat center;
+  background-size: cover;
+}
+
+@media screen and (max-width:600px) {
+
+  #contact2 .contact2-img{
+    width:80%;
+    min-height: 300px;
+    background:url("../img/gif/Printing.png") no-repeat center;
+    background-size: cover;
+  }
+
+}
+
+#contact2 .contact2-area{
+  width:41%;
+  text-align: center;
+}
+
+@media screen and (max-width:1190px) {
+  #contact2 .contact2-img{
+    width:60%;
+  }
+  #contact2 .contact2-area{
+    width:35%;
+  }
+}
+
+@media screen and (max-width:768px) {
+  #contact2 .contact2-img{
+    width:48%;
+  }
+  #contact2 .contact2-area{
+    width:48%;
+  }
+}
+
+@media screen and (max-width:600px) {
+  #contact2 .contact2-img,
+  #contact2 .contact2-area{
+    width:100%;
+  }
+  #contact2 .contact2-img{
+    margin:0 0 50px 0;
+  }
+}
+
+#contact2 .contact2-area h2{
+  font-size:1.3rem;
+  margin:0 0 10px 0;
+}
+
+#contact2 .contact2-area dt{
+  font-size:1.2rem;
+  margin:0 0 10px 0;
+}
+
+#contact2 .contact2-area dd{
+  font-size: 0.8rem;
+  margin:0 0 30px 0;
+}
+
+
+
+
+.demo {
+  display: flex;
+  justify-content: space-between;
+  width: 930px;
+  max-width: 80%;
+  margin-top: 40px;
+  margin-left: auto;
+  margin-right: auto;
+  align-items: flex-start;
+}
+
+
+p.log {
+  width: 600px;
+  height: 300px;
+  max-width: 80%;
+  border: 1px solid black;
+  border-radius: 1px;
+  background: rgba(255,255,255,0.8);
+  padding: 5px;
+  box-sizing: border-box;
+  margin-top: 20px;
+}
+p.log img {
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
+}
+
+
+
+/* contact3 */
+
+#contact3{
+  margin:0 0 100px 0;
+}
+
+#contact3 h2{
+  text-align: center;
+  margin:0 0 100px 0;
+  color: #000000;
+}
+
+@media screen and (max-width:550px) {
+  #contact3 h2{
+    margin:0 5px 50px 5px;
+  }
+}
+
+
+#contact3 .form-list{
+  width:85%;
+  max-width: 700px;
+  margin: 0 auto;
+
+}
+
+@media screen and (max-width:550px){
+  #contact3 .form-list{
+    width:85%;
+    max-width: 700px;
+    /*    margin: 0 auto; */
+    margin: 0px 10px 0px 20px;
+  }
+}
+
+#contact3 input , button , textarea , select {
+  margin:0;
+  padding:0;
+  border:none;
+  outline:none;
+  background:none;
+  font-size: 16px;
+}
+
+#contact3 .form-list input[type='text'] ,
+#contact3 .form-list input[type='email'] ,
+#contact3 .form-list textarea{
+  width:100%;
+  border:1px solid #666;
+  background:#fff;
+  padding: 10px;
+  -webkit-appearance:none;
+  -moz-appearance:none;
+  appearance:none;
+  color: #000000;
+}
+
+#contact3 .form-list input[type='text'] , input[type='email'] {
+  height:50px;
+}
+
+#contact3 .submit-btn{
+  width:152px;
+  margin: 0 auto;
+}
+
+#contact3 input[type='submit']{
+  border:1px solid #fff;
+  color: #fff;
+  text-align: center;
+  padding: 5px 20px;
+  width:152px;
+  margin: 0 auto;
+  transition: all .5s;
+}
+
+#contact3 input[type='submit']:hover{
+  background: #333;
+  color: #fff;
+}
+
+#contact3 .form-list dl{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding:0 0 20px 0;
+}
+
+#contact3 .form-list dt{
+  width:30%;
+}
+
+#contact3 .form-list dd{
+  width:66%;
+}
+
+#contact3 .form-list textarea {
+  height:200px;
+}
+
+@media screen and (max-width:768px) {
+  #contact3 .form-list dt{
+    margin:0 0 10px 0;
+  }
+  #contact3 .form-list dt,
+  #contact3 .form-list dd{
+    width:100%;
+  }
+
+}

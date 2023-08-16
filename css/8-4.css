@@ -1,0 +1,57 @@
+@charset "utf-8";
+
+
+
+/*========= 流れるテキスト ===============*/
+
+/*全共通*/
+
+.slide-in2 {
+	overflow: hidden;
+	display: inline-block;
+}
+
+.slide-in_inner2 {
+	display: inline-block;
+
+}
+
+/* 上下のアニメーション*/
+.upAnime{
+	opacity: 0;/* 事前に透過0 にして消しておく*/
+}
+
+.slideAnimeDownUp {
+	animation-name:slideTextY100;
+	animation-duration:1.5s;
+	animation-fill-mode:forwards;
+	opacity: 0;
+}
+
+@keyframes slideTextY100 {
+	from {
+		transform: translateY(100%);/* 要素を上の枠外に移動*/
+		opacity: 0;
+	}
+	to {
+		transform: translateY(0);/* 要素を元の位置に移動*/
+		opacity: 1;
+	}
+}
+.slideAnimeUpDown {
+	animation-name:slideTextY-100;
+	animation-duration:1.5s;
+	animation-fill-mode:forwards;
+	opacity: 0;
+}
+
+@keyframes slideTextY-100 {
+	from {
+		transform: translateY(-100%);/* 要素を下の枠外に移動*/
+		opacity: 0;
+	}
+	to {
+		transform: translateY(0);/* 要素を元の位置に移動*/
+		opacity: 1;
+	}
+}

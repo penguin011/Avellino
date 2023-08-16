@@ -1,0 +1,26 @@
+@charset "utf-8";
+
+/*========= レイアウトのためのCSS ===============*/
+
+
+/*========= タイピング ===============*/
+
+.TextTyping {
+	text-align: center;
+	font-size: 70%;
+}
+
+.TextTyping span {
+	display: none;
+}
+
+/*文字列後ろの線の設定*/
+.TextTyping::after {
+	content: ">";
+	animation: typinganime .8s ease infinite;
+}
+
+@keyframes typinganime{
+	from{opacity:0}
+	to{opacity:1}
+}

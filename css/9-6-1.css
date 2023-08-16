@@ -1,0 +1,83 @@
+@charset "utf-8";
+
+
+/*========= モーダル表示のためのCSS ===============*/
+
+/*infoエリアをはじめは非表示*/
+#info{
+	display: none;
+}
+
+/*モーダルの横幅を変更したい場合*/
+.modaal-container{
+	max-width: 600px;
+}
+
+/*モーダルのボタンの色を変更したい場合*/
+.modaal-close:after,
+.modaal-close:before{
+	background:#ccc;
+}
+
+.modaal-close:focus:after,
+.modaal-close:focus:before,
+.modaal-close:hover:after,
+.modaal-close:hover:before{
+	background:#666;
+}
+
+
+/*========= レイアウトのためのCSS ===============*/
+/*
+header{
+background: #333;
+}
+
+h1{
+font-size:1.5rem;
+text-align: center;
+text-transform: uppercase;
+padding: 20px;
+color: #fff;
+}
+
+h2{
+font-size:1.2rem;
+text-align: center;
+margin: 0 0 30px 0;
+}
+
+p,ul{
+margin-top:20px;
+}
+
+ul{
+list-style: none;
+}
+
+a{
+color:#333;
+outline: none;
+}
+
+small{
+background:#333;
+color:#fff;
+display: block;
+text-align: center;
+padding:20px;
+}
+
+
+section{
+padding:30px;
+}
+
+section:nth-child(2n){
+background:#f3f3f3;
+}
+
+img{
+max-width: 100%;
+height: auto;
+}*/
